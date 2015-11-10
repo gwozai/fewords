@@ -1,0 +1,27 @@
+{
+  "name": "fewords",
+  "version": "0.0.1",
+  "description": "record a few words anytimes",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron main.js",
+    "clean": "rm -rf ../dist"
+  },
+  "dependencies": {
+    "css-loader": "^0.22.0",
+    "electron-drag": "1.0.0",
+    "html-loader": "^0.3.0",
+    "node-sass": "^3.4.1",
+    "open": "0.0.5",
+    "raw-loader": "^0.5.1",
+    "sass-loader": "^3.1.1",
+    "style-loader": "^0.13.0",
+    "vue": "^1.0.7",
+    "webpack": "^1.12.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sapjax/fewords"
+  },
+  "license": "MIT"
+}
