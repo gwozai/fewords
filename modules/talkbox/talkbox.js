@@ -1,9 +1,8 @@
-require('./talkbox.scss')
-
+var store = require('../store/store')
 var Vue = require('vue')
 
 module.exports = Vue.extend({
-    template : require('./talkbox.html'),
+    template : __inline('./talkbox.html'),
     data : function() {
         return {
             content : ''
@@ -11,7 +10,15 @@ module.exports = Vue.extend({
     },
     methods : {
         submit: function() {
-            this.content = 'publish success'
+            console.log(this.content)
+            var data = store.get()
+            data.unshift({
+                id : Math.random(),
+                content : this.content,
+                timestamp : Date.now()
+            })
+            store.save(data)
+            this.content = ''
         }
     }
 })

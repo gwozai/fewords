@@ -1,9 +1,15 @@
 .talkbox {
+    padding: 10px;
     textarea {
         box-sizing: border-box;
         width: 100%;
-        padding: 10px;
         height: 100px;
+        padding: 10px;
         outline: none;
+        resize: none;
+        font-size: 14px;
+    }
+    .submit-outer {
+        text-align: right;
     }
 }

@@ -1,4 +1,6 @@
 <div class="talkbox">
-    <textarea :value="content" placeholder="just say something"></textarea>
-    <button @click="submit">submit</button>
+    <textarea v-model="content" debounce="30" placeholder="just say something"></textarea>
+    <div class="submit-outer">
+        <button @click="submit">submit</button>
+    </div>
 </div>
