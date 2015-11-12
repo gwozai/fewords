@@ -1,4 +1,5 @@
 var store = require('../store/store')
+var Guid = require('guid')
 var Vue = require('vue')
 
 module.exports = Vue.extend({
@@ -10,10 +11,12 @@ module.exports = Vue.extend({
     },
     methods : {
         submit: function() {
-            console.log(this.content)
+            if(!this.content.trim()) {
+                return false
+            }
             var data = store.get()
             data.unshift({
-                id : Math.random(),
+                id : Guid.create(),
                 content : this.content,
                 timestamp : Date.now()
             })

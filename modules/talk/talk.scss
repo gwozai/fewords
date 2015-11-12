@@ -1,0 +1,31 @@
+.talk {
+    //background: #E5E4DB;
+    //border: 1px dashed #333;
+    box-sizing: border-box;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    padding: 10px;
+    margin-bottom: 10px;
+    -webkit-user-select: text;
+    time {
+        font-size: 12px;
+        color: #aaa;
+    }
+    .toolbar {
+        text-align: right;
+        visibility: hidden;
+        -webkit-user-select: none;
+    }
+    &:hover {
+        .toolbar {
+            visibility: visible;
+        }
+    }
+    textarea {
+        width: 100%;
+        font-size: 14px;
+        outline: none;
+        resize: none;
+    }
+}

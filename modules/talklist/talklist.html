@@ -1,5 +1,5 @@
 <div class="talklist">
-    <div v-for="item in items" class="talk markdown-body">
-        <div class="content" v-html="item.content | marked"></div>
-    </div>
+    <template v-for="item in items">
+        <talk :content.sync="item.content" :id.sync="item.id" :timestamp.sync="item.timestamp"></talk>
+    </template>
 </div>

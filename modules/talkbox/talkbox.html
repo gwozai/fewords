@@ -1,6 +1,8 @@
 <div class="talkbox">
     <textarea v-model="content" debounce="30" placeholder="just say something"></textarea>
     <div class="submit-outer">
-        <button @click="submit">submit</button>
+        <a @click="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+            <i class="icon">&#xe60e;</i>
+        </a>
     </div>
 </div>

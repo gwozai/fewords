@@ -1,0 +1,22 @@
+<div class="talk markdown-body demo-card-wide mdl-card mdl-shadow--2dp" :id="id">
+    <div v-if="!isEdit">
+        <div class="content" v-html="content | marked"></div>
+        <div class="toolbar">
+            <a @click.stop="edit" class="mdl-button mdl-js-button mdl-button--primary">
+                <i class="icon">&#xe61d;</i>
+            </a>
+            <a @click.stop="delete" class="mdl-button mdl-js-button mdl-button--primary">
+                <i class="icon">&#xe623;</i>
+            </a>
+        </div>
+    </div>
+    <div v-else>
+        <textarea v-model="content" debounce="30"></textarea>
+        <div class="toolbar">
+            <a @click.stop="save" class="mdl-button mdl-js-button mdl-button--primary">
+                <i class="icon">&#xe60d;</i>
+            </a>
+        </div>
+    </div>
+
+</div>

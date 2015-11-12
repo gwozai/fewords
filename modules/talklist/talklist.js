@@ -1,5 +1,4 @@
 var Vue = require('vue')
-var marked = require('marked')
 var store = require('../store/store')
 
 
@@ -10,7 +9,17 @@ module.exports = Vue.extend({
             items: store.get()
         }
     },
-    filters : {
-        marked : marked
+    components : {
+        talk : require('../talk/talk')
+    },
+    events : {
+        delete : function(id) {
+            var self = this
+            this.items.forEach(function(item) {
+                if(item.id == id)
+                self.items.$remove(item)
+            })
+            store.save(self.items)
+        }
     }
 })
