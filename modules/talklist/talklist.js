@@ -26,6 +26,10 @@ module.exports = Vue.extend({
         },
         star : function() {
             store.save(this.items)
+        },
+        add : function(data) {
+            this.items.unshift(data)
+            store.save(this.items)
         }
     }
 })

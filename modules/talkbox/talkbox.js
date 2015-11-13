@@ -1,4 +1,3 @@
-var store = require('../store/store')
 var Guid = require('guid')
 var Vue = require('vue')
 
@@ -15,13 +14,12 @@ module.exports = Vue.extend({
                 this.$els.textarea.focus()
                 return false
             }
-            var data = store.get()
-            data.unshift({
+
+            this.$root.$broadcast('add', {
                 id : Guid.create(),
                 content : this.content,
                 timestamp : Date.now()
             })
-            store.save(data)
             this.content = ''
         }
     }
