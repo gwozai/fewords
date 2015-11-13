@@ -1,16 +1,16 @@
-<div class="talk markdown-body demo-card-wide mdl-card mdl-shadow--2dp" :id="id">
+<div class="talk markdown-body demo-card-wide mdl-card mdl-shadow--2dp" :id="id" :style="{background: bgColor}">
     <div v-if="!isEdit">
-        <div class="content" v-el:content v-html="content | marked" @dblclick="edit"></div>
+        <div class="content" v-el:content v-html="content | emoji marked" @dblclick="edit"></div>
         <div class="toolbar" v-el:toolbar>
             <time>{{timestamp | moment}}</time>
-            <a @click.stop="toggleStar" class="mdl-button mdl-js-button mdl-button--primary">
+            <a @click.stop="toggleStar">
                 <i v-show="!star" class="icon">&#xe621;</i>
                 <i v-show="star" class="icon">&#xe622;</i>
             </a>
-            <a @click.stop="delete" class="mdl-button mdl-js-button mdl-button--primary">
+            <a @click.stop="delete">
                 <i class="icon">&#xe623;</i>
             </a>
-            <a @click.stop="edit" class="mdl-button mdl-js-button mdl-button--primary">
+            <a @click.stop="edit">
                 <i class="icon">&#xe61d;</i>
             </a>
         </div>
@@ -19,7 +19,7 @@
         <textarea v-model="content" v-el:textarea debounce="30" :style="{ height: contentHeight + 'px' }"></textarea>
         <div class="line"></div>
         <div class="toolbar t2">
-            <a @click.stop="save" class="mdl-button mdl-js-button mdl-button--primary">
+            <a @click.stop="save">
                 <i class="icon">&#xe60d;</i>
             </a>
         </div>

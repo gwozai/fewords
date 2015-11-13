@@ -1,7 +1,15 @@
 var Vue = require('vue')
 var marked = require('marked')
 var moment = require('moment')
+var emoji = require('node-emoji')
 const MIN_HEIGHT = 33
+
+function randomColor(a) {
+    var r =  Math.floor((Math.random()* 255))
+    var g =  Math.floor((Math.random()* 255))
+    var b =  Math.floor((Math.random()* 255))
+    return 'rgba(' + r + ',' + g + ',' + b + ',' + a + ')'
+}
 
 module.exports = Vue.extend({
     template: __inline('./talk.html'),
@@ -9,11 +17,15 @@ module.exports = Vue.extend({
     data: function () {
         return {
             isEdit: false,
-            contentHeight: MIN_HEIGHT
+            contentHeight: MIN_HEIGHT,
+            bgColor : randomColor(0.2)
         }
     },
     filters: {
         marked: marked,
+        emoji:  function(value) {
+          return emoji.emojify(value)
+        },
         moment: function (time) {
             moment.locale('zh-cn')
             return moment(time).fromNow()

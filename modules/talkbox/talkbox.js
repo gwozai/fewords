@@ -12,6 +12,7 @@ module.exports = Vue.extend({
     methods : {
         submit: function() {
             if(!this.content.trim()) {
+                this.$els.textarea.focus()
                 return false
             }
             var data = store.get()

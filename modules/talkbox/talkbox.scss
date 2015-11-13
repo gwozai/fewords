@@ -1,4 +1,5 @@
 .talkbox {
+    position: relative;
     padding: 10px;
     textarea {
         box-sizing: border-box;
@@ -10,9 +11,12 @@
         font-size: 14px;
         transition: all 0.4s ease;
         border-color: #fff;
+        //border-radius: 4px;
+        background-color: #ECECEC;
         box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14) inset, 0 3px 1px -2px rgba(0, 0, 0, 0.2) inset, 0 1px 5px 0 rgba(0, 0, 0, 0.12) inset;
         &:focus {
             color: #0086b3;
+            background-color: #fff;
         }
         &:focus + .line {
             width: 100%;
@@ -28,6 +32,18 @@
         transition: width 0.4s ease;
     }
     .submit-outer {
-        text-align: right;
+        position: absolute;
+        right: 15px;
+        bottom: 20px;
+        a {
+            height: 40px;
+            width: 40px;
+            min-width: 0;
+            line-height: 38px;
+            i {
+                font-size: 16px;
+                vertical-align: top;
+            }
+        }
     }
 }
