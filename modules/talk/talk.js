@@ -2,23 +2,15 @@ var Vue = require('vue')
 var marked = require('marked')
 var moment = require('moment')
 var emoji = require('node-emoji')
-const MIN_HEIGHT = 33
-
-function randomColor(a) {
-    var r =  Math.floor((Math.random()* 255))
-    var g =  Math.floor((Math.random()* 255))
-    var b =  Math.floor((Math.random()* 255))
-    return 'rgba(' + r + ',' + g + ',' + b + ',' + a + ')'
-}
+const MIN_HEIGHT = 32
 
 module.exports = Vue.extend({
     template: __inline('./talk.html'),
-    props: ["content", "id", "timestamp", "star"],
+    props: ["content", "id", "timestamp", "star", "color"],
     data: function () {
         return {
             isEdit: false,
-            contentHeight: MIN_HEIGHT,
-            bgColor : randomColor(0.2)
+            contentHeight: MIN_HEIGHT
         }
     },
     filters: {
@@ -34,7 +26,6 @@ module.exports = Vue.extend({
     methods: {
         toggleStar: function () {
             this.star = !this.star
-            console.log(this.star)
             this.$dispatch('star', this.id)
         },
         edit: function () {

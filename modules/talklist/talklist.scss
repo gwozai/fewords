@@ -15,14 +15,44 @@
     padding: 10px;
     a {
         display: inline-block;
-        width: 50px;
+        padding: 0 20px;
         cursor: pointer;
         text-align: center;
         color: #807F80;
         font-size: 14px;
         outline: none;
-        &:hover, &.active {
+        transition: color 0.4s ease;
+        &#tt4 {
+            padding-right: 0;
+            position: relative;
+            z-index: 2;
+        }
+        &.active {
             color: #FF3B80;
         }
+    }
+    .search-outer {
+        display: inline-block;
+        vertical-align: middle;
+        margin-left: -18px;
+        width: 0;
+        border-bottom: 1px solid #4078c0;
+        overflow: hidden;
+        transition: all 0.4s ease;
+        .search-input {
+            position: relative;
+            top: 2px;
+            width: 100px;
+            outline: none;
+            border: none;
+            background: none;
+            height: 21px;
+            line-height: 21px;
+            font-size: 14px;
+            text-indent: 20px;
+        }
+    }
+    #tt4.active + .search-outer {
+        width: 100px;
     }
 }

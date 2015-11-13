@@ -1,6 +1,13 @@
 var Guid = require('guid')
 var Vue = require('vue')
 
+function randomColor(a) {
+    var r =  Math.floor((Math.random()* 255))
+    var g =  Math.floor((Math.random()* 255))
+    var b =  Math.floor((Math.random()* 255))
+    return 'rgba(' + r + ',' + g + ',' + b + ',' + a + ')'
+}
+
 module.exports = Vue.extend({
     template : __inline('./talkbox.html'),
     data : function() {
@@ -16,9 +23,10 @@ module.exports = Vue.extend({
             }
 
             this.$root.$broadcast('add', {
-                id : Guid.create(),
+                id : Guid.create().toString(),
                 content : this.content,
-                timestamp : Date.now()
+                timestamp : Date.now(),
+                color: randomColor(0.2)
             })
             this.content = ''
         }

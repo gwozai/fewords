@@ -1,15 +1,18 @@
 <div class="filter-bar">
-    <a id="tt1"><i class="icon">&#xe615;</i></a>
-    <a id="tt2"><i class="icon">&#xe621;</i></a>
+    <a id="tt1" @click.stop="toggleTimeSort" :class="{'active': now > 0}"><i class="icon">&#xe615;</i></a>
+    <a id="tt2" @click.stop="toggleStarFilter" :class="{'active' : onlyStar}"><i class="icon">&#xe621;</i></a>
     <a id="tt3"><i class="icon">&#xe603;</i></a>
-    <a id="tt4"><i class="icon">&#xe620;</i></a>
-    <div class="mdl-tooltip" for="tt1">按时间排序</div>
+    <a id="tt4" @click.stop="toggleSearch" :class="{'active' : searchOpend}"><i class="icon">&#xe620;</i></a>
+    <span class="search-outer">
+        <input class="search-input" v-el:input v-model="searchKey" />
+    </span>
+    <div class="mdl-tooltip" for="tt1">按时间倒序</div>
     <div class="mdl-tooltip" for="tt2">只显示星标项</div>
     <div class="mdl-tooltip" for="tt3">日期筛选</div>
     <div class="mdl-tooltip" for="tt4">搜索</div>
 </div>
 <div class="talklist">
-    <template v-for="item in items">
-        <talk :content.sync="item.content" :id.sync="item.id" :timestamp.sync="item.timestamp" :star.sync="item.star"></talk>
+    <template v-for="item in items | filterBy searchKey in 'content' | orderBy 'timestamp' now | starFilter">
+        <talk :content.sync="item.content" :id.sync="item.id" :timestamp.sync="item.timestamp" :star.sync="item.star" :color.sync="item.color"></talk>
     </template>
 </div>
