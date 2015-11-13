@@ -1,30 +1,49 @@
 var Vue = require('vue')
 var marked = require('marked')
-var store = require('../store/store')
+var moment = require('moment')
+const MIN_HEIGHT = 33
 
 module.exports = Vue.extend({
-    template : __inline('./talk.html'),
-    props : ["content", "id", "timestamp"],
-    data : function() {
+    template: __inline('./talk.html'),
+    props: ["content", "id", "timestamp", "star"],
+    data: function () {
         return {
-            isEdit : false
+            isEdit: false,
+            contentHeight: MIN_HEIGHT
         }
     },
-    filters : {
-        marked : marked
+    filters: {
+        marked: marked,
+        moment: function (time) {
+            moment.locale('zh-cn')
+            return moment(time).fromNow()
+        }
     },
-    methods : {
-        edit : function() {
-            console.log('edit')
-            this.isEdit = true
+    methods: {
+        toggleStar: function () {
+            this.star = !this.star
+            console.log(this.star)
+            this.$dispatch('star', this.id)
         },
-        delete : function() {
-            console.log(this.$data)
+        edit: function () {
+            var h = this.$els.content.parentNode.clientHeight - this.$els.toolbar.clientHeight
+            this.contentHeight = Math.max(h, MIN_HEIGHT)
+            this.isEdit = true
+            var self = this
+            Vue.nextTick(function () {
+                var t = self.$els.textarea
+                t.selectionStart = self.content.length
+                t.selectionEnd = self.content.length
+                t.focus()
+            })
+        },
+        delete: function () {
             this.$dispatch('delete', this.id)
         },
-        save : function() {
+        save: function () {
             console.log('save')
             this.isEdit = false
+            this.$dispatch('save', this.id)
         }
     }
 })

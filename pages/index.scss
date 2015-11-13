@@ -20,6 +20,11 @@
     vertical-align: middle;
 }
 
+html, body {
+    height: 100%;
+    overflow: hidden;
+}
+
 body {
     color: #333;
     background: #E2E7EC;

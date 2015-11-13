@@ -9,10 +9,14 @@ app.on('window-all-closed', function() {
 app.on('ready', function() {
     console.log('ready')
     mainWindow = new BrowserWindow({
-        width: 500,
-        height: 600,
+        "width": 500,
+        "height": 600,
+        "min-width" : 300,
+        "min-height" : 400,
+        "skip-taskbar" : true,
         //frame : false,
-        resizeable : false
+        "center" : true,
+        "title-bar-style": 'hidden-inset'
     })
 
 

@@ -25,6 +25,10 @@ module.exports = {
     },
     save : function(d) {
         data = d
+        if(!Array.isArray(d) || !d.length) {
+            console.error('保存的数据不合法')
+            return false
+        }
         var body = JSON.stringify(data)
 		fs.writeFile(dataPath, body, {mode : 511}, function(err) {
 			if(err) return console.error(err)

@@ -20,6 +20,12 @@ module.exports = Vue.extend({
                 self.items.$remove(item)
             })
             store.save(self.items)
+        },
+        save : function() {
+            store.save(this.items)
+        },
+        star : function() {
+            store.save(this.items)
         }
     }
 })
