@@ -18,7 +18,6 @@ module.exports = {
     get : function() {
         if(!data) {
             var d = fs.readFileSync(dataPath)
-            console.log(d)
 			data = JSON.parse(d)
         }
         return data

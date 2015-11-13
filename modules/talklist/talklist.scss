@@ -21,7 +21,10 @@
         color: #807F80;
         font-size: 14px;
         outline: none;
-        transition: color 0.4s ease;
+        transition: all 0.4s ease;
+        &:first-child.active {
+            transform: rotate(180deg);
+        }
         &#tt4 {
             padding-right: 0;
             position: relative;
@@ -42,7 +45,7 @@
         .search-input {
             position: relative;
             top: 2px;
-            width: 100px;
+            width: 100%;
             outline: none;
             border: none;
             background: none;
@@ -53,6 +56,15 @@
         }
     }
     #tt4.active + .search-outer {
-        width: 100px;
+        width: 150px;
     }
 }
+
+
+//.fade-transition {
+//    transition: all .3s ease;
+//}
+//
+//.fade-enter, .fade-leave {
+//    opacity: 0;
+//}
