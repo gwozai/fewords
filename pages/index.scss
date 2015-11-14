@@ -4,14 +4,11 @@
 @import "../modules/talkbox/talkbox";
 @import "../modules/talklist/talklist";
 @import "../modules/talk/talk";
+@import "../assets/css/griffin";
 
 @font-face {
     font-family: 'iconfont';
-    src: url('http://at.alicdn.com/t/font_1447412170_5509586.eot'); /* IE9*/
-    src: url('http://at.alicdn.com/t/font_1447412170_5509586.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-    url('http://at.alicdn.com/t/font_1447412170_5509586.woff') format('woff'), /* chrome、firefox */
-    url('http://at.alicdn.com/t/font_1447412170_5509586.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
-    url('http://at.alicdn.com/t/font_1447412170_5509586.svg#iconfont') format('svg'); /* iOS 4.1- */
+    src: url('http://at.alicdn.com/t/font_1447469203_664288.woff') format('woff')
 }
 
 .icon {
@@ -32,3 +29,54 @@ body {
     -webkit-user-select: none;
 }
 
+.setting-btn {
+    position: absolute;
+    right: 0;
+    top: 130px;
+    a {
+        display: inline-block;
+        padding: 5px 10px;
+        color: #807F80;
+        cursor: pointer;
+    }
+}
+
+
+.setting-panel {
+    box-sizing: border-box;
+    background: #3292c8;
+    height: 100%;
+    .nav-bar {
+        overflow: hidden;
+        border-bottom: 2px groove #ccc;
+        a {
+            height: 30px;
+            line-height: 30px;
+            padding: 5px 10px;
+            color: #fff;
+            cursor: pointer;
+            font-size: 16px;
+            text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+            &:first-child {
+                float: left;
+            }
+            &:last-child {
+                float: right;
+            }
+            &:hover {
+                text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+            }
+        }
+    }
+
+    .setting-area {
+        padding: 50px;
+        text-align: center;
+        .just-for-fun {
+            margin-top: 80px;
+        }
+        button {
+            margin-top: -28px;
+        }
+    }
+}

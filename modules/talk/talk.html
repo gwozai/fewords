@@ -1,11 +1,11 @@
-<div class="talk markdown-body demo-card-wide mdl-card mdl-shadow--2dp" :id="id" :style="{'background': color}">
+<div class="talk markdown-body demo-card-wide mdl-card mdl-shadow--2dp" :id="talk.id" :style="{'background': talk.color}">
     <div v-if="!isEdit">
-        <div class="content" v-el:content v-html="content | emoji | marked" @dblclick="edit"></div>
+        <div class="content" v-el:content v-html="talk.content | emoji | marked" @dblclick="edit"></div>
         <div class="toolbar" v-el:toolbar>
-            <time>{{timestamp | moment}}</time>
+            <time>{{talk.timestamp | moment}}</time>
             <a @click.stop="toggleStar">
-                <i v-show="!star" class="icon">&#xe621;</i>
-                <i v-show="star" class="icon">&#xe622;</i>
+                <i v-show="!talk.star" class="icon">&#xe621;</i>
+                <i v-show="talk.star" class="icon">&#xe622;</i>
             </a>
             <a @click.stop="delete">
                 <i class="icon">&#xe623;</i>

@@ -15,11 +15,7 @@
     <span class="search-outer">
         <input class="search-input" v-el:input v-model="searchKey" v-on:keyup.esc="toggleSearch" debounce="100" />
     </span>
-    <!--<div class="mdl-tooltip" for="tt1">按时间倒序</div>-->
-    <!--<div class="mdl-tooltip" for="tt2">只显示星标项</div>-->
-    <!--<div class="mdl-tooltip" for="tt3">日期筛选</div>-->
-    <!--<div class="mdl-tooltip" for="tt4">搜索</div>-->
 </div>
 <div class="talklist">
-        <talk v-for="item in items | filterBy searchKey in 'content' | orderBy 'timestamp' now | starFilter" :content.sync="item.content" :id.sync="item.id" :timestamp.sync="item.timestamp" :star.sync="item.star" :color.sync="item.color" transition="fade"></talk>
+        <talk v-for="item in items | filterBy searchKey in 'content' | orderBy 'timestamp' now | starFilter" :talk.sync="item" transition="fade"></talk>
 </div>

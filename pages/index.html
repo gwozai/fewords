@@ -6,12 +6,9 @@
     <link rel="stylesheet" href="index.scss" />
 </head>
 <body>
-    <talkbox></talkbox>
-    <talklist></talklist>
-    <script>
-        require('electron-drag')('body')
-    </script>
+    <router-view></router-view>
     <script src="../assets/js/material.js"></script>
+    <script src="../assets/js/behaviourFix.js"></script>
     <script src="./index.js"></script>
 </body>
 </html>

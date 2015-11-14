@@ -1,6 +1,7 @@
 var app = require('app')
 var BrowserWindow = require('browser-window')
 var Tray = require('tray')
+var ipc = require('ipc')
 
 app.dock.hide()
 
@@ -43,6 +44,11 @@ app.on('ready', function () {
 
     win.on('closed', function () {
         win = null
+    })
+
+    ipc.on('quit', function() {
+        win.close()
+        app.quit()
     })
 })
 

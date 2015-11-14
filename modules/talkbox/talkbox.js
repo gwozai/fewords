@@ -20,7 +20,6 @@ module.exports = Vue.extend({
 		var remote = require('remote')
 		var app = remote.require('app')
 		var win = remote.getCurrentWindow()
-        console.log('ready')
 		win.on('focus', function() {
 			self.$els.textarea && self.$els.textarea.focus()
 		})

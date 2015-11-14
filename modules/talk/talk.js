@@ -6,7 +6,7 @@ const MIN_HEIGHT = 32
 
 module.exports = Vue.extend({
     template: __inline('./talk.html'),
-    props: ["content", "id", "timestamp", "star", "color"],
+    props: ["talk"],
     data: function () {
         return {
             isEdit: false,
@@ -25,8 +25,8 @@ module.exports = Vue.extend({
     },
     methods: {
         toggleStar: function () {
-            this.star = !this.star
-            this.$dispatch('star', this.id)
+            this.talk.star = !this.talk.star
+            this.$dispatch('star', this.talk.id)
         },
         edit: function () {
             var h = this.$els.content.parentNode.clientHeight - this.$els.toolbar.clientHeight
@@ -41,12 +41,11 @@ module.exports = Vue.extend({
             })
         },
         delete: function () {
-            this.$dispatch('delete', this.id)
+            this.$dispatch('delete', this.talk.id)
         },
         save: function () {
-            console.log('save')
             this.isEdit = false
-            this.$dispatch('save', this.id)
+            this.$dispatch('save', this.talk.id)
         }
     }
 })

@@ -1,25 +1,27 @@
 var path = require('path')
-var mkdirp = require('mkdirp')
-var userHomePath = process.env.HOME || process.env.USERPROFILE
-var dataPath = path.join(userHomePath, '/Documents/fewords/talklist.json')
 var fs = require('fs')
+var mkdirp = require('mkdirp')
+var config = require('../../config/config.json')
+var configPath  = path.join(__dirname, '../../config/config.json')
+var fileName = '/fewords/fewords.json'
 
-var data = null
+var userDocumentPath = (process.env.HOME || process.env.USERPROFILE) + '/Documents'
+var dataPath = path.join(config.dataPath || userDocumentPath, fileName)
 
-console.log(dataPath)
-if(!fs.existsSync(dataPath)) {
-    mkdirp.sync(path.dirname(dataPath))
-	fs.writeFileSync(dataPath, '[]', {mode: 511})
-    console.log('创建成功')
+function createDataFile(p, d) {
+    if(!fs.existsSync(p)) {
+        mkdirp.sync(path.dirname(p))
+        fs.writeFileSync(p, JSON.stringify(d), {mode: 511})
+        console.log('创建存储文件成功')
+    }
 }
 
+createDataFile(dataPath, [])
+
+var data = JSON.parse(fs.readFileSync(dataPath))
 
 module.exports = {
     get : function() {
-        if(!data) {
-            var d = fs.readFileSync(dataPath)
-			data = JSON.parse(d)
-        }
         return data
     },
     save : function(d) {
@@ -34,7 +36,18 @@ module.exports = {
         var body = JSON.stringify(data)
 		fs.writeFile(dataPath, body, {mode : 511}, function(err) {
 			if(err) return console.error(err)
-			console.log('保存成功')
+			console.log('保存数据成功')
 		})
+    },
+    changePath: function(p, cb) {
+        config.dataPath = p
+        dataPath  = path.join(p, fileName)
+        createDataFile(dataPath, data)
+        data = JSON.parse(fs.readFileSync(dataPath))
+        fs.writeFile(configPath, JSON.stringify(config), {mode : 511}, function(err) {
+            if(err) return console.error(err)
+            console.log('目录保存成功')
+            cb && cb()
+        })
     }
 }

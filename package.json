@@ -15,7 +15,8 @@
     "moment": "^2.10.6",
     "node-emoji": "^1.0.4",
     "open": "0.0.5",
-    "vue": "^1.0.7"
+    "vue": "^1.0.7",
+    "vue-router": "^0.7.5"
   },
   "repository": {
     "type": "git",
