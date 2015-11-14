@@ -1,0 +1,11 @@
+{
+    "osx" : {
+        "title": "fewords",
+        "icon": "assets/images/fewords.icns",
+        "icon-size": 80,
+        "contents": [
+            { "x": 280, "y": 126, "type": "link", "path": "/Applications" },
+            { "x": 50, "y": 126, "type": "file" }
+        ]
+    }
+}

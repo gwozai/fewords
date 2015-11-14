@@ -8,7 +8,8 @@
 
 @font-face {
     font-family: 'iconfont';
-    src: url('http://at.alicdn.com/t/font_1447469203_664288.woff') format('woff')
+    //src: url('http://at.alicdn.com/t/font_1447469203_664288.woff') format('woff')
+    src: url('../assets/fonts/iconfont.woff') format('woff');
 }
 
 .icon {
@@ -73,10 +74,16 @@ body {
         padding: 50px;
         text-align: center;
         .just-for-fun {
-            margin-top: 80px;
+            margin-top: 70px;
         }
         button {
             margin-top: -28px;
+        }
+
+        .about {
+            margin-top: 50px;
+            color: #ccc;
+            line-height: 1.2;
         }
     }
 }

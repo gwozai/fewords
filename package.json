@@ -4,8 +4,12 @@
   "description": "a simple quick note",
   "main": "main.js",
   "scripts": {
-    "start": "electron main.js",
-    "clean": "rm -rf ../dist"
+      "start": "electron main.js",
+      "clean": "rm -rf ../fewords-dist",
+      "build": "npm run build:osx",
+      "build:osx": "npm run clean && electron-packager ./ fewords --out=../fewords-dist/osx --platform=darwin --arch=x64 --version=0.30.4 --icon=assets/images/fewords.icns",
+      "pack": "npm run pack:osx",
+      "pack:osx": "npm run build:osx && electron-builder \"../fewords-dist/osx/fewords-darwin-x64/fewords.app\" --platform=osx --out=\"../fewords-dist/osx\" --config=packager.json"
   },
   "dependencies": {
     "electron-drag": "1.0.0",
