@@ -14,7 +14,7 @@
 
 	//阻止刷新
     document.addEventListener('keydown', function (e) {
-        if (e.metaKey && e.keyCode == 82) {
+        if (e.metaKey && (e.keyCode == 82)) {
             e.preventDefault()
             return false
         }

@@ -35,8 +35,8 @@ module.exports = Vue.extend({
             var self = this
             Vue.nextTick(function () {
                 var t = self.$els.textarea
-                t.selectionStart = self.content.length
-                t.selectionEnd = self.content.length
+                t.selectionStart = self.talk.content.length
+                t.selectionEnd = self.talk.content.length
                 t.focus()
             })
         },

@@ -35,6 +35,7 @@ module.exports = Vue.extend({
                 id : Guid.create().toString(),
                 content : this.content,
                 timestamp : Date.now(),
+                star : false,
                 color: randomColor(0.2)
             })
             this.content = ''

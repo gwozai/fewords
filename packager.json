@@ -2,10 +2,11 @@
     "osx" : {
         "title": "fewords",
         "icon": "assets/images/fewords.icns",
+        "background" : "assets/images/mac-installer.png",
         "icon-size": 80,
         "contents": [
-            { "x": 280, "y": 126, "type": "link", "path": "/Applications" },
-            { "x": 50, "y": 126, "type": "file" }
+            { "x": 420, "y": 162, "type": "link", "path": "/Applications" },
+            { "x": 99, "y": 162, "type": "file" }
         ]
     }
 }
